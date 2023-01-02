@@ -9,7 +9,7 @@ In few words, the conditions are:
 -there is 100 prisoners<br>
 -there is a room with 100 boxes.<br>
 -Each box contains a card with a number between 1 and 100. <br>
--Each prisoner has to find a box with his/her number<br>
+-Each prisoner has to find a box with his/her number but only has 50 attempts<br>
 -to win, all of 100 prisoners have to pick thier number.
 <hr>
 at the first glance od an eye the odds are (1/2)^100. but accorudng to the video the odds can be improved to over 30% 
@@ -17,8 +17,10 @@ Sounds impossible right? <br>
 
 
 Therefore I gave it a test so you don't have to.I have coded a simulation in PHP. <br>
+Before running you can set the value of describe to 1 if you want to have a detaild view of what has happened. <br>
+You can also set the amount of test and modify the amount of prisones if you want to test the strategyu in diffrent scenarios.
 
-enjoy
+enjoy!
 
 
 
