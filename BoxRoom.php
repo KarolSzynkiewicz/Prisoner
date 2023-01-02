@@ -10,7 +10,7 @@
     public $shuffledBoxes = array();
     public $queue = array();
     public $amount_of_simulations;
-    public $describe=0;
+    public $describe=0; 
     public $describe2=0;
     public $describe3=0;
     public $describe4=0;
@@ -44,26 +44,32 @@
             {
                 $toCheck=$id;
             }
-            if ($this->describe==1) {echo "wiezien $id w pudelku $toCheck znalazl ".$this->shuffledBoxes[$toCheck].'<br>';}
+            if ($this->describe==1) 
+
+            {
+                echo "prisoner with id $id in box $toCheck found ".$this->shuffledBoxes[$toCheck].'<br>';
+            }
+
+
             $toCheck=$this->shuffledBoxes[$toCheck];
 
 
             if ($this->shuffledBoxes[$toCheck]==$id)
             {
                 $success=1;
-                if ($this->describe==1) {echo 'więzień '.$id.' w pudełku '. $toCheck. ' znalazł '.$this->shuffledBoxes[$toCheck].". To była jego $i próba <hr>";}
+                if ($this->describe==1) {echo 'prisoner '.$id.'in box '. $toCheck. ' has found '.$this->shuffledBoxes[$toCheck].". it was his $i attempt <hr>";}
                 return 1;
                 break;
             }
             if ($i==$this->allowed_attemps_for_prisoner && $success==false)
                 {
-                if ($this->describe==1) {echo  "nie udało sie, więzień $id ginie po $i probach <hr>";}
+                if ($this->describe==1) {echo  "prisoner $id has faild after  $i attempts <hr>";}
                 return 0;
                 break;
                 }
                 if ($i==$this->allowed_attemps_for_prisoner && $success==true && $id==$this->amount_of_prisoners)
                 {
-                if ($this->describe==1) {echo '<h1>brawo, wygrywasz</h1>';}
+                if ($this->describe==1) {echo '<h1>well done, you won</h1>';}
                 return 1;
                 break;
             }
@@ -77,7 +83,7 @@
         {
             if ($this->CheckMyBoxes($checker)!==1) 
             {
-            if ($this->describe2==1 ||$this->describe3==1){echo "<h5>prisoner $checker  has failed- all population has failed</h5>";}
+            if ($this->describe2==1 ||$this->describe3==1){echo "<h5>prisoner $checker  has failed- therefore the entire population has failed</h5>";}
             return 0;
             break;
             } 
@@ -108,11 +114,11 @@
             
             
         shuffle($this->shuffledBoxes);//randomizes the boxes order
-        array_unshift($this->shuffledBoxes, "added zero index");
-        unset($this->shuffledBoxes[0]); 
+        array_unshift($this->shuffledBoxes, "added zero index");// just a helper to start array keys with 1
+        unset($this->shuffledBoxes[0]); //  just a helper to start array keys with 1
         }
         $part=$counter/$this->amount_of_simulations;
-        echo"<h1>po wykonaniu $this->amount_of_simulations testów, powodzeniem zakończyło się $counter z nich. <br>Procent testów zakończonych powodzeniem:$part</h1>";
+        echo"<h1>after running $this->amount_of_simulations simulations, $counter of them has been completed with success. <br>precentage: $part</h1>";
 
     }
 };
